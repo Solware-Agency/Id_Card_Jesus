@@ -33,7 +33,7 @@ const ContactHeader: React.FC<ContactHeaderProps> = ({
         style={{ boxShadow: ELEMENT_STYLES.avatar.boxShadow }}
       >
         <img 
-          src={IMAGES.EMPLOYEE_PHOTO}
+          src="https://lafysstpyiejevhrlmzc.supabase.co/storage/v1/object/public/imagenes/Equipo/Jesus.png"
           alt={employee.name}
           className="w-full h-full object-cover"
         />
