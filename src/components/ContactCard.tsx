@@ -229,7 +229,7 @@ const ContactCard: React.FC = () => {
                 {/* Profile initials circle */}
                 <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border-4 border-indigo-400/30 overflow-hidden shadow-lg">
                   <img 
-                    src="https://lafysstpyiejevhrlmzc.supabase.co/storage/v1/object/public/imagenes/Equipo/Eugenio.png"
+                    src="https://lafysstpyiejevhrlmzc.supabase.co/storage/v1/object/public/imagenes/Equipo/Jesus.png"
                     alt={employee.name}
                     className="w-full h-full object-cover"
                   />
