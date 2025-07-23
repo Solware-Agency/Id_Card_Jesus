@@ -13,6 +13,7 @@ export const empleados: Employee[] = [
       es: 'Agencia Solware'
     },
     photo: '/images/eugenio-andreone.jpg',
+    photo: 'https://lafysstpyiejevhrlmzc.supabase.co/storage/v1/object/public/imagenes/Equipo/Jesus.png',
     email: 'ventas@solware.agency',
     phone: '+58 414 2323332',
     whatsapp: '584120564628',
