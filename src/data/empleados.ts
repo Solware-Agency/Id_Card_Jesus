@@ -2,7 +2,7 @@ import { Employee } from '../types';
 
 export const empleados: Employee[] = [
   {
-    slug: 'eugenio-andreone',
+    slug: 'jesus-freites',
     name: 'Jesus Freites',
     title: {
       en: 'Electronic Engineer',
