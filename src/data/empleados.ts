@@ -3,10 +3,10 @@ import { Employee } from '../types';
 export const empleados: Employee[] = [
   {
     slug: 'eugenio-andreone',
-    name: 'Eugenio Andreone',
+    name: 'Jesus Freites',
     title: {
-      en: 'Production Engineer',
-      es: 'Ingeniero de Producción'
+      en: 'Electronic Engineer',
+      es: 'Ingeniero Electrónico'
     },
     company: {
       en: 'Solware Agency',
@@ -15,8 +15,8 @@ export const empleados: Employee[] = [
     photo: '/images/eugenio-andreone.jpg',
     email: 'ventas@solware.agency',
     phone: '+58 414 2323332',
-    whatsapp: '584142323332',
-    linkedin: 'eugenio-andreone',
+    whatsapp: '584120564628',
+    linkedin: 'jesus-freites21',
     website: 'solware.agency',
     calendly: 'https://calendly.com/eugenio-andreone'
   }
