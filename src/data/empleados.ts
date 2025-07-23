@@ -19,7 +19,7 @@ export const empleados: Employee[] = [
     whatsapp: '584120564628',
     linkedin: 'jesus-freites21',
     website: 'solware.agency',
-    calendly: 'https://calendly.com/eugenio-andreone'
+    calendly: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ28TbL6x8Jj7yLpzgpH2OQ1MV5t5zdvwYRbjCTVKTjj-pNNzSSZ3mGSpguP7Sv4AksuyRdav2bJ'
   }
 ];
 
