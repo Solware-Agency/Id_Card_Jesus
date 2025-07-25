@@ -10,10 +10,17 @@ import { trackEvent } from '../utils/analytics';
 import { TEXT_CONTENT } from '../constants';
 import type { Language } from '../types';
 
-const ContactCard: React.FC = () => {
+interface ContactCardProps {
+  defaultSlug?: string;
+}
+
+const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
   const { slug } = useParams<{ slug: string }>();
   const [language, setLanguage] = useState<Language['code']>('es');
-  const employee = slug ? getEmployeeBySlug(slug) : null;
+  
+  // Usar el slug de la URL o el defaultSlug proporcionado
+  const currentSlug = slug || defaultSlug;
+  const employee = currentSlug ? getEmployeeBySlug(currentSlug) : null;
 
   useEffect(() => {
     if (employee) {
