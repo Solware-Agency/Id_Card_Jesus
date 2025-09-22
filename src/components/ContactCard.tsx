@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Mail, Phone, MessageCircle, Linkedin, Globe, Calendar, Download, Globe2 } from 'lucide-react';
+import { Mail, Phone, Linkedin, Globe, Calendar, Download, Globe2 } from 'lucide-react';
 import BlurText from './BlurText';
 import FadeContent from './FadeContent';
 import WorkButton from '../../components/animata/button/work-button';
@@ -143,7 +143,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
     );
   };
 
-  // Filter available contact options (removed download button)
+  // Filter available contact options (removed download button and whatsapp)
   const contactOptions = [
     {
       icon: <Mail size={24} />,
@@ -152,16 +152,6 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
       variant: 'primary' as const,
       ariaLabel: `Enviar correo electrónico a ${employee.name}`,
       label: 'Correo'
-    },
-    {
-      icon: <MessageCircle size={24} />,
-      href: `https://wa.me/${employee.whatsapp}`,
-      target: '_blank',
-      rel: 'noopener noreferrer',
-      action: 'click_whatsapp',
-      variant: 'success' as const,
-      ariaLabel: `Enviar mensaje de WhatsApp a ${employee.name}`,
-      label: 'WhatsApp'
     },
     ...(employee.linkedin ? [{
       icon: <Linkedin size={24} />,
@@ -190,11 +180,13 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated colorful background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-slate-800 to-indigo-900">
-          {/* Floating abstract shapes */}
-          <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-violet-600/40 to-blue-600/40 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-40 w-72 h-72 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full mix-blend-screen filter blur-xl opacity-50 animate-pulse animation-delay-4000"></div>
-          <div className="absolute bottom-20 right-40 w-96 h-96 bg-gradient-to-r from-slate-600/30 to-indigo-600/40 rounded-full mix-blend-screen filter blur-xl opacity-40 animate-pulse animation-delay-1000"></div>
+          {/* Floating abstract shapes - less blurry and free movement */}
+          <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-indigo-600/40 to-purple-600/40 rounded-full mix-blend-screen filter blur-lg opacity-60 animate-float-free-1"></div>
+          <div className="absolute top-40 right-20 w-72 h-72 bg-gradient-to-r from-violet-600/40 to-blue-600/40 rounded-full mix-blend-screen filter blur-lg opacity-60 animate-float-free-2"></div>
+          <div className="absolute -bottom-8 left-40 w-72 h-72 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-full mix-blend-screen filter blur-lg opacity-60 animate-float-free-3"></div>
+          <div className="absolute bottom-20 right-40 w-96 h-96 bg-gradient-to-r from-slate-600/30 to-indigo-600/40 rounded-full mix-blend-screen filter blur-lg opacity-50 animate-float-free-4"></div>
+          <div className="absolute top-1/2 left-10 w-64 h-64 bg-gradient-to-r from-emerald-500/35 to-teal-600/35 rounded-full mix-blend-screen filter blur-lg opacity-55 animate-float-free-5"></div>
+          <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-gradient-to-r from-rose-500/30 to-pink-600/30 rounded-full mix-blend-screen filter blur-lg opacity-50 animate-float-free-6"></div>
           
           {/* Aurora-like overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-transparent via-indigo-500/10 to-transparent animate-pulse"></div>
@@ -223,6 +215,15 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
             >
               {/* Header with gradient background */}
               <div className="bg-gradient-to-br from-slate-800/90 to-indigo-900/90 backdrop-blur-sm p-4 sm:p-6 text-center relative border-b border-white/10 rounded-t-3xl">
+                {/* IESA Logo - top left */}
+                <div className="absolute top-4 left-4">
+                  <img 
+                    src="/iesa.png" 
+                    alt="IESA Logo" 
+                    className="w-12 h-12 object-contain shadow-lg"
+                  />
+                </div>
+                
                 {/* Language toggle - top right */}
                 <div className="absolute top-4 right-4">
                   <IconButton
@@ -320,16 +321,17 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                 <div className="mt-4 sm:mt-6 px-1 sm:px-2">
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch w-full">
                     <a
-                      href={`/vcf/${employee.slug}.vcf`}
-                      download
-                      onClick={() => handleAction('click_save_contact')}
+                      href={`https://wa.me/${employee.whatsapp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => handleAction('click_whatsapp')}
                       className="flex-1"
-                      aria-label={`Guardar contacto de ${employee.name}`}
+                      aria-label={`Enviar mensaje de WhatsApp a ${employee.name}`}
                     >
                       <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 backdrop-blur-sm border border-indigo-400/50 px-4 sm:px-6 py-3 text-sm sm:text-base transition-all w-full h-12 sm:h-14 shadow-xl hover:shadow-2xl hover:from-indigo-500 hover:to-purple-500 flex items-center justify-center">
                         <span className="absolute bottom-0 left-0 h-48 w-full origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white/30 transition-all duration-300 ease-out group-hover:translate-y-14"></span>
                         <span className="font-bold text-white text-center leading-tight relative z-10 group-hover:drop-shadow-lg transition-all duration-200 whitespace-nowrap">
-                          {TEXT_CONTENT[language].saveContact}
+                          {TEXT_CONTENT[language].whatsapp}
                         </span>
                       </button>
                     </a>

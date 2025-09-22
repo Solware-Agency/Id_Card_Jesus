@@ -99,14 +99,14 @@ export const ELEMENT_STYLES = {
 // Text content
 export const TEXT_CONTENT = {
   es: {
-    saveContact: 'Guardar contacto',
+    whatsapp: 'WhatsApp',
     scheduleMeeting: 'Pongamos fecha',
     notFound: 'Contacto no encontrado',
     notFoundDesc: 'El perfil solicitado no existe.',
     languageToggle: 'Cambiar idioma'
   },
   en: {
-    saveContact: 'Save contact',
+    whatsapp: 'WhatsApp',
     scheduleMeeting: 'Schedule meeting',
     notFound: 'Contact not found',
     notFoundDesc: 'The requested profile does not exist.',
