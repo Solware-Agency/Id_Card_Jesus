@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent scroll on body and html */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
 /* Animation delays for floating shapes */
 .animation-delay-1000 {
   animation-delay: 1s;

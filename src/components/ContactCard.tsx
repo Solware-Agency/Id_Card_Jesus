@@ -196,14 +196,14 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
       </div>
       
       {/* Content container */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+      <div className="relative z-10 h-screen flex items-center justify-center p-2 sm:p-4">
         <div className="max-w-sm w-full mx-auto">
           <FadeContent 
             blur={true} 
             duration={2000} 
             easing="ease-out" 
             initialOpacity={0}
-            className="relative mx-4 sm:mx-0"
+            className="relative mx-2 sm:mx-0"
           >
             {/* Glassmorphism card */}
             <div 
@@ -214,11 +214,11 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
               }}
             >
               {/* Header with gradient background */}
-              <div className="bg-gradient-to-br from-slate-800/90 to-indigo-900/90 backdrop-blur-sm p-4 sm:p-6 text-center relative border-b border-white/10 rounded-t-3xl">
+              <div className="bg-gradient-to-br from-slate-800/90 to-indigo-900/90 backdrop-blur-sm p-3 sm:p-4 text-center relative border-b border-white/10 rounded-t-3xl">
                 {/* IESA Logo - top left */}
                 <div className="absolute top-4 left-4">
                   <img 
-                    src="/iesa.png" 
+                    src="/iesa.webp" 
                     alt="IESA Logo" 
                     className="w-12 h-12 object-contain shadow-lg"
                   />
@@ -235,7 +235,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                 </div>
 
                 {/* Profile initials circle */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3 border-4 border-indigo-400/30 overflow-hidden shadow-lg">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-2 border-4 border-indigo-400/30 overflow-hidden shadow-lg">
                   <img 
                     src="https://lafysstpyiejevhrlmzc.supabase.co/storage/v1/object/public/imagenes/Equipo/Jesus.png"
                     alt={employee.name}
@@ -277,26 +277,24 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                         scale: 1
                       }
                     ]}
-                    className="text-2xl font-bold text-white mb-4 text-center"
+                    className="text-xl sm:text-2xl font-bold text-white mb-2 text-center"
                   />
                 </div>
                 <div className="text-center w-full">
-                  <p className="text-white/90 mb-1 text-sm sm:text-base px-2 text-center font-medium">
+                  <p className="text-white/90 mb-1 text-xs sm:text-sm px-2 text-center font-medium">
                     {employee.title[language]}
                   </p>
-                  <p className="text-white/80 text-xs sm:text-sm px-2 text-center">
+                  <p className="text-white/80 text-xs px-2 text-center">
                     {employee.company[language]}
                   </p>
                 </div>
               </div>
 
               {/* Contact section */}
-              <div className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8 bg-white/10 backdrop-blur-sm rounded-b-3xl">
-                {/* Separator line */}
-                <div className="absolute top-0 left-3 right-3 h-0.5 bg-white/50"></div>
+              <div className="p-3 sm:p-4 space-y-4 sm:space-y-6 bg-white/10 backdrop-blur-sm rounded-b-3xl">
                 
                 {/* Horizontal action buttons section */}
-                <div className="flex justify-center items-center gap-4 my-6">
+                <div className="flex justify-center items-center gap-3 my-4">
                   {contactOptions.map((option, index) => (
                     <a
                       key={index}
@@ -304,13 +302,13 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                       target={option.target}
                       rel={option.rel}
                       onClick={() => handleAction(option.action)}
-                      className="group relative flex flex-col items-center justify-center bg-slate-800/60 hover:bg-indigo-600/80 backdrop-blur-sm rounded-full w-12 h-12 sm:w-14 sm:h-14 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/25 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:ring-offset-2 focus:ring-offset-transparent border border-indigo-400/30 hover:border-indigo-400/40 hover:border-2"
+                      className="group relative flex flex-col items-center justify-center bg-slate-800/60 hover:bg-indigo-600/80 backdrop-blur-sm rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/25 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-indigo-400/60 focus:ring-offset-2 focus:ring-offset-transparent border border-indigo-400/30 hover:border-indigo-400/40 hover:border-2"
                       aria-label={option.ariaLabel}
                     >
                       <div className="text-white/90 group-hover:text-white group-hover:drop-shadow-lg transition-all duration-300">
                         {React.cloneElement(option.icon as React.ReactElement, {
-                          size: 20,
-                          className: "sm:w-6 sm:h-6"
+                          size: 16,
+                          className: "sm:w-5 sm:h-5"
                         })}
                       </div>
                     </a>
@@ -318,8 +316,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                 </div>
 
                 {/* Action buttons section */}
-                <div className="mt-4 sm:mt-6 px-1 sm:px-2">
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch w-full">
+                <div className="mt-3 sm:mt-4 px-1 sm:px-2">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center items-stretch w-full">
                     <a
                       href={`https://wa.me/${employee.whatsapp}`}
                       target="_blank"
@@ -328,7 +326,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                       className="flex-1"
                       aria-label={`Enviar mensaje de WhatsApp a ${employee.name}`}
                     >
-                      <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 backdrop-blur-sm border border-indigo-400/50 px-4 sm:px-6 py-3 text-sm sm:text-base transition-all w-full h-12 sm:h-14 shadow-xl hover:shadow-2xl hover:from-indigo-500 hover:to-purple-500 flex items-center justify-center">
+                      <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 backdrop-blur-sm border border-indigo-400/50 px-3 sm:px-4 py-2 text-xs sm:text-sm transition-all w-full h-10 sm:h-12 shadow-xl hover:shadow-2xl hover:from-indigo-500 hover:to-purple-500 flex items-center justify-center">
                         <span className="absolute bottom-0 left-0 h-48 w-full origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white/30 transition-all duration-300 ease-out group-hover:translate-y-14"></span>
                         <span className="font-bold text-white text-center leading-tight relative z-10 group-hover:drop-shadow-lg transition-all duration-200 whitespace-nowrap">
                           {TEXT_CONTENT[language].whatsapp}
@@ -344,7 +342,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ defaultSlug }) => {
                         className="flex-1"
                         aria-label={`Programar una cita con ${employee.name}`}
                       >
-                        <button className="group relative overflow-hidden rounded-full bg-slate-800/30 backdrop-blur-sm border-2 border-slate-600/40 px-4 sm:px-6 py-3 text-sm sm:text-base transition-all w-full h-12 sm:h-14 shadow-lg hover:shadow-xl hover:bg-slate-700/40 flex items-center justify-center">
+                        <button className="group relative overflow-hidden rounded-full bg-slate-800/30 backdrop-blur-sm border-2 border-slate-600/40 px-3 sm:px-4 py-2 text-xs sm:text-sm transition-all w-full h-10 sm:h-12 shadow-lg hover:shadow-xl hover:bg-slate-700/40 flex items-center justify-center">
                           <span className="absolute bottom-0 left-0 h-48 w-full origin-bottom translate-y-full transform overflow-hidden rounded-full bg-indigo-500/25 transition-all duration-300 ease-out group-hover:translate-y-14"></span>
                           <span className="font-bold text-white text-center leading-tight relative z-10 group-hover:drop-shadow-lg transition-all duration-200 whitespace-nowrap">
                             {TEXT_CONTENT[language].scheduleMeeting}
